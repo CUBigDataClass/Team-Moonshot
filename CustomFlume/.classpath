@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="lib" path="D:/Hadoop EDU/jars/hazelcast-1.9.4-rc-sources.jar/hazelcast-1.9.4-rc-sources.jar"/>
+	<classpathentry kind="lib" path="D:/Hadoop EDU/jars/hazelcast-2.1.1.jar/hazelcast-2.1.1.jar"/>
+	<classpathentry kind="lib" path="D:/Hadoop EDU/jars/hadoop-common-2.2.0.jar"/>
+	<classpathentry kind="lib" path="D:/Hadoop EDU/jars/hadoop-core-0.20.2-cdh3u0.jar"/>
+	<classpathentry kind="lib" path="D:/Hadoop EDU/jars/hadoop-mapreduce-client-core-2.2.0.jar"/>
+	<classpathentry kind="lib" path="C:/jars/flume-ng-core-1.3.1.jar/flume-ng-core-1.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/jars/flume-event-filter-1.1-sources.jar/flume-event-filter-1.1-sources.jar"/>
+	<classpathentry kind="lib" path="C:/jars/flume-ng-log4jappender-1.2.0-sources.jar/flume-ng-log4jappender-1.2.0-sources.jar"/>
+	<classpathentry kind="lib" path="C:/jars/twitter4j-2.0.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
