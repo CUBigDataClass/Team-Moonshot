@@ -18,6 +18,7 @@ import TableRow from 'material-ui/lib/table/table-row';
 import TableHeader from 'material-ui/lib/table/table-header';
 import TableRowColumn from 'material-ui/lib/table/table-row-column';
 import TableBody from 'material-ui/lib/table/table-body';
+import AutoComplete from 'material-ui/lib/auto-complete';
 
 const styles = {
   container: {
@@ -31,7 +32,9 @@ const muiTheme = getMuiTheme({
     accent1Color: Colors.pinkA200,
   },
 });
-
+const productCategories=[
+    'shoes','coffee shops', 'pizza places', 'surf shops',
+]
 const tableData=[
 {
     rank: 1,
@@ -123,11 +126,11 @@ class Main extends React.Component {
       <MuiThemeProvider muiTheme={muiTheme}>
         <div style={styles.container}>
           <h1>PROJECT-MOONSHOT</h1>
-          <div>
-                <TextField id="searchBar1" ref="searchBar" name="newName"
-                hintText="Enter a product category"
-                defaultValue=""/>
-          </div>
+          <AutoComplete
+            floatingLabelText="Enter a product category"
+            filter={AutoComplete.caseInsensitiveFilter}
+            dataSource={productCategories}
+          />
           <Dialog
             open={this.state.open}
             title= "Ranking Table"
