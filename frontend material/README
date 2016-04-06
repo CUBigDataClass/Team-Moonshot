@@ -1,0 +1,23 @@
+MATERIAL SET UP FOR FRONT END:
+
+I am uploading 2 files, Main1.js and app.js This is the code for the front end of the website using Material. Material UI is Google's user interface which follows the principles of material design. We are incorporating it into our webpage's front end since it looks really nice and so that we can make use of all the cool features and animations that Material provides. Since material is built into react, it works really well for our webpage.
+
+PROCEDURE FOR INSTALLING MATERIAL:
+
+1] clone the material git repo - http://www.material-ui.com
+
+2] the above step will create a folder called "material-ui"
+
+3] cd into it from terminal and type "npm install" -- this will install all the dependancies for the node serve (stuff like hot-reloading)
+
+4] cd into a folder called "examples"
+
+5] cd into a folder called "webpack-example"
+
+6] type "nmp install"
+
+7] type "npm start' to launch the material server and access it through localhost:3000
+
+8] now, in the webpack example, open up src, and and then open app. App contains the JS files and www contains the html and css. In the app folder, paste the two files I have uploaded "Main1.js" and "app.js"
+
+9] Finally, run the server again (npm start) and fire up localhost:3000. You should be good to go!
