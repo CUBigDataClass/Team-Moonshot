@@ -32,6 +32,28 @@ const muiTheme = getMuiTheme({
   },
 });
 
+const tableData=[
+{
+    rank: 1,
+    name: 'Nike',
+    score: 10334,
+},
+{
+    rank: 2,
+    name: 'Addidas',
+    score: 4453,
+},
+{
+    rank: 3,
+    name: 'Reebok',
+    score: 1110,
+},
+{
+    rank: 4,
+    name: 'New Balance',
+    score: 600,
+}];
+
 class Main extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -78,26 +100,14 @@ class Main extends React.Component {
           </TableRow>
         </TableHeader>
         <TableBody>
-          <TableRow>
-            <TableRowColumn>1</TableRowColumn>
-            <TableRowColumn>Nike</TableRowColumn>
-            <TableRowColumn>10,334</TableRowColumn>
-          </TableRow>
-          <TableRow>
-            <TableRowColumn>2</TableRowColumn>
-            <TableRowColumn>Addidas</TableRowColumn>
-            <TableRowColumn>4,453</TableRowColumn>
-          </TableRow>
-          <TableRow>
-            <TableRowColumn>3</TableRowColumn>
-            <TableRowColumn>Reebok</TableRowColumn>
-            <TableRowColumn>1,110</TableRowColumn>
-          </TableRow>
-          <TableRow>
-            <TableRowColumn>4</TableRowColumn>
-            <TableRowColumn>New Balance</TableRowColumn>
-            <TableRowColumn>648</TableRowColumn>
-          </TableRow>
+          {tableData.map( (row, index) => (
+            <TableRow key={index} selected={row.selected}>
+              <TableRowColumn>{index}</TableRowColumn>
+              <TableRowColumn>{row.rank}</TableRowColumn>
+              <TableRowColumn>{row.name}</TableRowColumn>
+              <TableRowColumn>{row.score}</TableRowColumn>
+            </TableRow>
+            ))}
         </TableBody>
       </Table>
       <FlatButton
@@ -107,6 +117,7 @@ class Main extends React.Component {
       />
      </div>
     );
+
 
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
@@ -135,19 +146,5 @@ class Main extends React.Component {
     );
   }
 }
-
-const tableData=[
-{
-    name:'Miranda Butler',
-    roll: '001',
-},
-{
-    name:'Simon Hewett',
-    roll: '002',
-},
-{
-    name:'Rishabh Raghavendran',
-    roll: '003',
-}];
 
 export default Main;
