@@ -1,6 +1,6 @@
 MATERIAL SET UP FOR FRONT END:
 
-I am uploading 2 files, Main1.js and app.js This is the code for the front end of the website using Material. Material UI is google's user interface which follows the principles of material design. We are incorporating it into our webpage's front end since it looks really nice and so that we can make use of all the cool features and animations that Material provides. Since material is built into react, it works really well for our webpage.
+I am uploading 2 files, Main1.js and app.js This is the code for the front end of the website using Material. Material UI is Google's user interface which follows the principles of material design. We are incorporating it into our webpage's front end since it looks really nice and so that we can make use of all the cool features and animations that Material provides. Since material is built into react, it works really well for our webpage.
 
 PROCEDURE FOR INSTALLING MATERIAL:
 
