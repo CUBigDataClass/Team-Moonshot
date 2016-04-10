@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<classpath>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="D:/Hadoop EDU/jars/hadoop-common-2.2.0.jar"/>
-	<classpathentry kind="lib" path="D:/Hadoop EDU/jars/hadoop-core-0.20.2-cdh3u0.jar"/>
-	<classpathentry kind="lib" path="D:/Hadoop EDU/jars/hadoop-mapreduce-client-core-2.2.0.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="output" path="bin"/>
-</classpath>
