@@ -1,3 +1,4 @@
+
 /**
  * In this file, we create a React component
  * which incorporates components providedby material-ui.
@@ -17,6 +18,7 @@ import TableRow from 'material-ui/lib/table/table-row';
 import TableHeader from 'material-ui/lib/table/table-header';
 import TableRowColumn from 'material-ui/lib/table/table-row-column';
 import TableBody from 'material-ui/lib/table/table-body';
+import AutoComplete from 'material-ui/lib/auto-complete';
 
 const styles = {
   container: {
@@ -30,6 +32,30 @@ const muiTheme = getMuiTheme({
     accent1Color: Colors.pinkA200,
   },
 });
+const productCategories=[
+    'shoes','coffee shops', 'pizza places', 'surf shops',
+]
+const tableData=[
+{
+    rank: 1,
+    name: 'Nike',
+    score: 10334,
+},
+{
+    rank: 2,
+    name: 'Addidas',
+    score: 4453,
+},
+{
+    rank: 3,
+    name: 'Reebok',
+    score: 1110,
+},
+{
+    rank: 4,
+    name: 'New Balance',
+    score: 600,
+}];
 
 class Main extends React.Component {
   constructor(props, context) {
@@ -77,26 +103,14 @@ class Main extends React.Component {
           </TableRow>
         </TableHeader>
         <TableBody>
-          <TableRow>
-            <TableRowColumn>1</TableRowColumn>
-            <TableRowColumn>Nike</TableRowColumn>
-            <TableRowColumn>10,334</TableRowColumn>
-          </TableRow>
-          <TableRow>
-            <TableRowColumn>2</TableRowColumn>
-            <TableRowColumn>Addidas</TableRowColumn>
-            <TableRowColumn>4,453</TableRowColumn>
-          </TableRow>
-          <TableRow>
-            <TableRowColumn>3</TableRowColumn>
-            <TableRowColumn>Reebok</TableRowColumn>
-            <TableRowColumn>1,110</TableRowColumn>
-          </TableRow>
-          <TableRow>
-            <TableRowColumn>4</TableRowColumn>
-            <TableRowColumn>New Balance</TableRowColumn>
-            <TableRowColumn>648</TableRowColumn>
-          </TableRow>
+          {tableData.map( (row, index) => (
+            <TableRow key={index} selected={row.selected}>
+              <TableRowColumn>{index}</TableRowColumn>
+              <TableRowColumn>{row.rank}</TableRowColumn>
+              <TableRowColumn>{row.name}</TableRowColumn>
+              <TableRowColumn>{row.score}</TableRowColumn>
+            </TableRow>
+            ))}
         </TableBody>
       </Table>
       <FlatButton
@@ -106,16 +120,17 @@ class Main extends React.Component {
       />
      </div>
     );
-    
+
+
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div style={styles.container}>
           <h1>PROJECT-MOONSHOT</h1>
-          <div>
-                <TextField id="searchBar1" ref="searchBar" name="newName"
-                hintText="Enter a product category"
-                defaultValue=""/>
-          </div>
+          <AutoComplete
+            floatingLabelText="Enter a product category"
+            filter={AutoComplete.caseInsensitiveFilter}
+            dataSource={productCategories}
+          />
           <Dialog
             open={this.state.open}
             title= "Ranking Table"
@@ -134,19 +149,5 @@ class Main extends React.Component {
     );
   }
 }
-
-const tableData=[
-{
-    name:'Miranda Butler',
-    roll: '001',
-},
-{
-    name:'Simon Hewett',
-    roll: '002',
-},
-{
-    name:'Rishabh Raghavendran',
-    roll: '003',
-}];
 
 export default Main;
