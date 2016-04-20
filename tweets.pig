@@ -1,0 +1,10 @@
+REGISTER '/home/edureka/Desktop/json-simple-1.1.jar';   
+REGISTER '/home/edureka/Desktop/elephant-bird-pig-4.1.jar';
+REGISTER '/home/edureka/Desktop/elephant-bird-hadoop-combat-4.1.jar'; 
+loadjson = LOAD '/flu/raw_tweets.json' USING com.twitter.elephantbird.pig.load.JsonLoader('-nestedLoad') AS (json:map[]);
+tweet_text = FOREACH loadjson GENERATE flatten(json#'text') as (m:map[]);
+STORE B into '/flu/structured_text'; 
+C = FOREACH loadjson GENERATE flatten(json#'entities') as (m:map[]);
+D = FOREACH C GENERATE flatten(m#'user_mentions') as (u:map[]); 
+USER_SCREEN_NAMES = FOREACH D GENERATE FLATTEN(u#'screen_name');
+STORE USER_SCREEN_NAMES into '/flu/screen';
