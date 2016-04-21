@@ -1,0 +1,20 @@
+<coordinator-app name="coordinator1" frequency="1440" start="2016-02-23T10\19:00Z" end="2016-04-20T11\21:00Z" timezone="MT" xmlns="uri:oozie:coordinator:0.1">
+
+<action>
+
+<workflow>
+
+<app-path>hdfs://192.168.56.101:9000/FlumeTweets/FlumeJob</app-path>
+
+</workflow>
+
+</action>           
+
+<action>
+<workflow>
+<app-path>hdfs://192.168.56.101:9000/FlumeTweets/MapReduceJob</app-path>
+
+</workflow>
+
+</action>
+</coordinator-app>
