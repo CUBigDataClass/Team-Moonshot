@@ -1,0 +1,46 @@
+<workflow-app xmlns="uri:oozie:workflow:0.1" name="WorkflowRunnerTest">
+<start to="intersection0"/>
+<action name="intersection0">
+<map-reduce>
+<job-tracker>192.168.56.101:8021</job-tracker>
+<name-node>hdfs://192.168.56.101:8020</name-node>
+<prepare> <delete path="hdfs://192.168.56.102:8020/oozieout/out1"/></prepare>
+<configuration>
+<property>
+<name>mapred.job.queue.name</name>
+<value>default</value>
+</property>
+<property>
+<name>mapred.mapper.class</name>
+<value>Maps</value>
+</property>
+<property>
+<name>mapred.reducer.class</name>
+<value>Reduces</value>
+</property>
+<property>
+<name>mapred.output.key.class</name>
+<value>org.apache.hadoop.io.Text</value>
+</property>
+<property>
+<name>mapred.output.value.class</name>
+<value>org.apache.hadoop.io.IntWritable</value>
+</property>
+<property>
+<name>mapred.input.dir</name>
+<value>/user/flume/tweets/</value>
+</property>
+<property>
+<name>mapred.output.dir</name>
+<value>/flu/out</value>
+</property>
+</configuration>
+</map-reduce>
+<ok to="end"/>
+<error to="fail"/>
+</action>
+<kill name="fail">
+<message>Map/Reduce failed, error message</message>
+</kill>
+<end name="end"/>
+</workflow-app>
