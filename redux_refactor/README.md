@@ -1,5 +1,11 @@
 # Team Moonshot, Redux Style
 
+## This is IN PROGRESS
+As of yet, this only uses a mocked out schema in mongoDB via mongoose. Check `server/db/mongo/models/categories.js` for the model.
+
+### TODO:
+Ask Simon. 720-771-1393 or slack. (I don't check my voicemail). Time is of the essence, friends. :)
+
 ### How to use?
 
 **Install MongoDB:
@@ -26,7 +32,7 @@ sudo mkdir -p /data/db
 sudo chown -R `id -u` /data/db
 ```
 
-**Run mongoDBr**
+**Run mongoDB**
 ```bash
 mongod
 ```
