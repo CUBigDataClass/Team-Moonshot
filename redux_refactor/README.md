@@ -4,7 +4,7 @@
 As of yet, this only uses a mocked out schema in mongoDB via mongoose. Check `server/db/mongo/models/categories.js` for the model.
 
 ### TODO:
-Ask Simon. 720-771-1393 or slack. (I don't check my voicemail). Time is of the essence, friends. :)
+Ask Simon. My number is on slack. (I don't use my voicemail, so if I don't respond please text). Time is of the essence friends. :)
 
 ### How to use?
 
