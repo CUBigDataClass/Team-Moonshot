@@ -1,0 +1,31 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
+
+@value roboto: 'Roboto'; 
+
+.heading {
+  font-family: roboto;
+  font-size: 28px;
+
+  line-height: 48px;
+}
+
+.subheading {
+  font-family: roboto;
+  font-size: 21px;
+
+  line-height: 24px;
+}
+
+.normal {
+  font-family: roboto;
+  font-size: 16px;
+
+  line-height: 24px;
+}
+
+.small {
+  font-family: roboto;
+  font-size: 12px;
+
+  line-height: 24px;
+}
