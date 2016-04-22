@@ -1,0 +1,30 @@
+@value font-medium from '../settings.css';
+
+.topic-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.topic {
+  composes: flexNotMoreThan200 from '../common/layout';
+  font-size: font-medium;
+}
+
+.button {
+  font-size: font-medium;
+  width: 28px;
+  height: 28px;
+  border: none;
+  margin: 0 28px;
+  color: #fff;
+}
+
+.increment {
+}
+
+.decrement {
+}
+
+.destroy {
+}
+
