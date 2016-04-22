@@ -4,7 +4,7 @@
 
 **Install MongoDB:
 
-*** Mac
+***Mac***
 ```bash
 # Update brew formulae
 brew update
@@ -12,7 +12,7 @@ brew update
 brew install mongodb
 ```
 
-***Ubuntu
+***Ubuntu***
 ```
 apt-get update
 apt-get install mongodb
