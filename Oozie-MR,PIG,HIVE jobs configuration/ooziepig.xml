@@ -1,0 +1,23 @@
+<workflow-app name='pig-tweets' xmlns="uri:oozie:workflow:0.3">
+    <start to='pig-node'/>
+    <action name='pig-node'>
+       <pig>
+            <job-tracker>192.168.56.101:8021</job-tracker>
+            <name-node>hdfs://192.168.56.101:8020</name-node>
+            <prepare> <delete path="<prepare> <delete path="hdfs://192.168.56.102:8020/oozieout/outPIG"/></prepare>"/></prepare>
+            <configuration>
+                <property>
+                    <name>mapred.job.queue.name</name>
+                    <value>default</value>
+                </property>
+            </configuration>
+            <script>tweets.pig</script>
+       </pig>
+       <ok to="end"/>
+           <error to="fail"/>
+        </action>
+        <kill name="fail">
+             <message>Pig failed, error message[${wf:errorMessage(wf:lastErrorNode())}]</message>
+        </kill>
+        <end name="end"/>
+</workflow-app>
