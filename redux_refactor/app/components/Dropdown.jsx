@@ -56,7 +56,7 @@ export default class Dropdown extends Component {
 
         <SubmitButton
           SubmitButton={this.props.SubmitButton} />
-          submission={submission}
+          something={something}
       </div>
     );
   }
