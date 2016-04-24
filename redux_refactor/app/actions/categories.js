@@ -29,6 +29,11 @@ function destroy(index) {
   return { type: types.DESTROY_CATEGORY, index };
 }
 
+function click(index) {
+  return { type: types.CLICK_TUTORIAL, index };
+}
+
+
 export function typing(text) {
   return {
     type: types.TYPING,
@@ -141,5 +146,11 @@ export function destroyCategory(id, index) {
     // You can also dispatch here
     // E.g.
     // .then(response => {});
+  };
+}
+
+export function tutorial(id,index) {
+  return dispatch => {
+    dispatch(click(index));
   };
 }
