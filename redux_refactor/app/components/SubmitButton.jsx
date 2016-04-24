@@ -13,19 +13,25 @@ export default class SubmitButton extends Component {
   }
 
   onButtonClick() {
-    const { id, index, SubmitButton, something } = this.props;
-    SubmitButton(id, index);
-    console.log(something);
+    const { id, index, onClickSubmitButton, submitButtonState } = this.props;
+    onClickSubmitButton(id, index);
+    console.log(submitButtonState);
   }
 
   render() {
+    const actions = [
+      <FlatButton label="Close" onClick={this.onButtonClick} />
+    ];
+
     return (
       <div>
         <FlatButton label="Submit" onClick={this.onButtonClick} />
         <Dialog
           title="Dialog With Actions"
-          open={false}
+          actions={actions}
+          open={!this.props.submitButtonState}
         >
+
         </Dialog>
       </div>
     );

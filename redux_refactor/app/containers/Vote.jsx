@@ -68,17 +68,15 @@ class Vote extends Component {
 
   render() {
     const {newCategory, categories, something} = this.props;
-    console.log("********************************************");
-    console.log(something);
     return (
       <div>
         <MenuButton
           TutorialButton={this.onTutorialButton}
         />
         <Dropdown
-          SubmitButton={this.onSubmitClick}
+          onClickSubmitButton={this.onSubmitClick}
           MenuSelection={this.onDropDown}
-          something={this.props.something}
+          submitButtonState={this.props.submitButtonState}
 
         />
         <EntryBox
@@ -105,7 +103,7 @@ function mapStateToProps(state) {
   return {
     categories: state.category.categories,
     newCategory: state.category.newCategory,
-    something: state.category.submission
+    submitButtonState: state.category.submission
   };
 }
 

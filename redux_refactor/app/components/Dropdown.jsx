@@ -55,11 +55,9 @@ export default class Dropdown extends Component {
          </DropDownMenu>
 
         <SubmitButton
-          SubmitButton={this.props.SubmitButton} />
-          something={this.props.something}
-
+          onClickSubmitButton={this.props.onClickSubmitButton}
+          submitButtonState={this.props.submitButtonState} />
       </div>
     );
   }
-  {something=this.props}
 }
