@@ -7,12 +7,14 @@ import {
   GET_CATEGORIES_SUCCESS,
   GET_CATEGORIES_FAILURE,
   CLICK_TUTORIAL,
-  CLICK_SUBMIT} from 'constants/index';
+  CLICK_SUBMIT,
+  MENU_DROP} from 'constants/index';
 
 
 export default function category(state = {
   categories: [],
-  newCategory: ''
+  newCategory: '',
+  tutorial: false
 }, action) {
   switch (action.type) {
     case TYPING:
@@ -75,6 +77,17 @@ export default function category(state = {
           submitButton: submitVal,
           categories: state.categories
         };
+
+        case MENU_DROP:
+          var MenuVal;
+          if (state.MenuSelection) {
+            console.log("ENTERED INTO STATE.MenuSelection IN ELSE  GGGGGGGGG !!!!!!!");
+            MenuVal = !state.MenuSelection;
+          }
+          return {
+            MenuSelection: 2,
+            categories: state.categories
+          };
 
     default:
       return state;

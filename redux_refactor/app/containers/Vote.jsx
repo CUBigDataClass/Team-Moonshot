@@ -6,10 +6,9 @@ import MainSection from 'components/MainSection';
 import Scoreboard from 'components/Scoreboard';
 import MenuButton from 'components/MenuButton';
 import Dropdown from 'components/Dropdown';
-import {submission} from 'actions/categories';
 
 import {
-  createCategory, typing, destroyCategory, fetchCategories, tutorial } from 'actions/categories';
+  createCategory, typing, destroyCategory, fetchCategories, tutorial, submission, droplist } from 'actions/categories';
 import styles from 'css/components/vote';
 
 const cx = classNames.bind(styles);
@@ -31,11 +30,17 @@ class Vote extends Component {
     this.onEntrySave = this.onEntrySave.bind(this);
     this.onTutorialButton = this.onTutorialButton.bind(this);
     this.onSubmitClick = this.onSubmitClick.bind(this);
+    this.onDropDown = this.onDropDown.bind(this);
   }
 
   onSubmitClick(id,index) {
     const {dispatch} = this.props;
     dispatch(submission(id, index))
+  }
+
+  onDropDown(id,index) {
+    const {dispatch} = this.props;
+    dispatch(droplist(id, index))
   }
 
   onTutorialButton(id,index) {
@@ -60,20 +65,25 @@ class Vote extends Component {
     dispatch(createCategory(name));
   }
 
+
   render() {
-    const {newCategory, categories} = this.props;
+    const {newCategory, categories, something} = this.props;
+    console.log("********************************************")
+    console.log(something)
     return (
       <div>
+        <MenuButton
+          TutorialButton={this.onTutorialButton}
+        />
+        <Dropdown
+          SubmitButton={this.onSubmitClick}
+          MenuSelection={this.onDropDown}
+        />
         <EntryBox
           category={newCategory}
           onEntryChange={this.onEntryChange}
           onEntrySave={this.onEntrySave}
         />
-        <MenuButton
-          TutorialButton={this.onTutorialButton}
-        />
-        <Dropdown
-          SubmitButton={this.onSubmitClick} />
         <MainSection
           categories={categories}
           onDestroy={this.onDestroy}
@@ -92,7 +102,8 @@ Vote.propTypes = {
 function mapStateToProps(state) {
   return {
     categories: state.category.categories,
-    newCategory: state.category.newCategory
+    newCategory: state.category.newCategory,
+    something: state.category.submission
   };
 }
 

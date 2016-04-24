@@ -37,6 +37,10 @@ function submit(index) {
   return { type: types.CLICK_SUBMIT, index };
 }
 
+function menu(index) {
+  return { type: types.MENU_DROP, index };
+}
+
 export function typing(text) {
   return {
     type: types.TYPING,
@@ -161,5 +165,11 @@ export function tutorial(id,index) {
 export function submission(id,index) {
   return dispatch => {
     dispatch(submit(index));
+  };
+}
+
+export function droplist(id,index) {
+  return dispatch => {
+    dispatch(menu(index));
   };
 }
