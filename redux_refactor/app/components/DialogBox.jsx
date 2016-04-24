@@ -10,9 +10,18 @@ export default class DialogBox extends Component {
   }
 
   render() {
+    const actions = [
+      <FlatButton label="Close" onClick={this.props.onButtonClick} />
+    ];
+
     return (
       <Dialog
-      />
+        title="Dialog With Actions"
+        actions={actions}
+        open={!this.props.dialogBoxButtonState}
+      >
+      </Dialog>
+
     );
   }
 }

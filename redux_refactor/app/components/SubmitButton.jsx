@@ -19,20 +19,13 @@ export default class SubmitButton extends Component {
   }
 
   render() {
-    const actions = [
-      <FlatButton label="Close" onClick={this.onButtonClick} />
-    ];
 
     return (
       <div>
         <FlatButton label="Submit" onClick={this.onButtonClick} />
-        <Dialog
-          title="Dialog With Actions"
-          actions={actions}
-          open={!this.props.submitButtonState}
-        >
-
-        </Dialog>
+        <DialogBox
+        onButtonClick={this.onButtonClick}
+        dialogBoxButtonState={this.props.submitButtonState} />
       </div>
     );
   }
