@@ -6,7 +6,8 @@ import {
   GET_CATEGORIES_REQUEST,
   GET_CATEGORIES_SUCCESS,
   GET_CATEGORIES_FAILURE,
-  CLICK_TUTORIAL} from 'constants/index';
+  CLICK_TUTORIAL,
+  CLICK_SUBMIT} from 'constants/index';
 
 
 export default function category(state = {
@@ -61,6 +62,19 @@ export default function category(state = {
         tutorial: tutorialVal,
         categories: state.categories
       };
+
+      case CLICK_SUBMIT:
+        var submitVal;
+        if (state.submitButton) {
+          submitVal = !state.submitButton;
+        }
+        else {
+          submitVal = true;
+        }
+        return {
+          submitButton: submitVal,
+          categories: state.categories
+        };
 
     default:
       return state;

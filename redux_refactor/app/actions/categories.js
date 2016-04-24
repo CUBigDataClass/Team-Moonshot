@@ -33,6 +33,9 @@ function click(index) {
   return { type: types.CLICK_TUTORIAL, index };
 }
 
+function submit(index) {
+  return { type: types.CLICK_SUBMIT, index };
+}
 
 export function typing(text) {
   return {
@@ -152,5 +155,11 @@ export function destroyCategory(id, index) {
 export function tutorial(id,index) {
   return dispatch => {
     dispatch(click(index));
+  };
+}
+
+export function submission(id,index) {
+  return dispatch => {
+    dispatch(submit(index));
   };
 }

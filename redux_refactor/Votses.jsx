@@ -4,12 +4,8 @@ import classNames from 'classnames/bind';
 import EntryBox from 'components/EntryBox';
 import MainSection from 'components/MainSection';
 import Scoreboard from 'components/Scoreboard';
-import MenuButton from 'components/MenuButton';
-import Dropdown from 'components/Dropdown';
-import {submission} from 'actions/categories';
-
 import {
-  createCategory, typing, destroyCategory, fetchCategories, tutorial } from 'actions/categories';
+  createCategory, typing, destroyCategory, fetchCategories } from 'actions/categories';
 import styles from 'css/components/vote';
 
 const cx = classNames.bind(styles);
@@ -29,18 +25,6 @@ class Vote extends Component {
     // event handlers for EntryBox component
     this.onEntryChange = this.onEntryChange.bind(this);
     this.onEntrySave = this.onEntrySave.bind(this);
-    this.onTutorialButton = this.onTutorialButton.bind(this);
-    this.onSubmitClick = this.onSubmitClick.bind(this);
-  }
-
-  onSubmitClick(id,index) {
-    const {dispatch} = this.props;
-    dispatch(submission(id, index))
-  }
-
-  onTutorialButton(id,index) {
-    const {dispatch} = this.props;
-    dispatch(tutorial(id, index))
   }
 
   onDestroy(id, index) {
@@ -69,11 +53,6 @@ class Vote extends Component {
           onEntryChange={this.onEntryChange}
           onEntrySave={this.onEntrySave}
         />
-        <MenuButton
-          TutorialButton={this.onTutorialButton}
-        />
-        <Dropdown
-          SubmitButton={this.onSubmitClick} />
         <MainSection
           categories={categories}
           onDestroy={this.onDestroy}
