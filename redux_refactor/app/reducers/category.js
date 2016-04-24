@@ -5,7 +5,8 @@ import {
   DESTROY_CATEGORY,
   GET_CATEGORIES_REQUEST,
   GET_CATEGORIES_SUCCESS,
-  GET_CATEGORIES_FAILURE } from 'constants/index';
+  GET_CATEGORIES_FAILURE,
+  CLICK_TUTORIAL} from 'constants/index';
 
 
 export default function category(state = {
@@ -44,6 +45,21 @@ export default function category(state = {
       return {
         categories: [...state.categories.filter((tp, i) => i !== action.index)],
         newCategory: state.newCategory
+      };
+
+    case CLICK_TUTORIAL:
+      var tutorialVal;
+      if (state.tutorial) {
+        console.log("ENTERED INTO STATE.TUTORIAL IN IF OMGOMGOMGOMGOMG!!!!!!!!")
+        tutorialVal = !state.tutorial;
+      }
+      else {
+        console.log("ENTERED INTO STATE.TUTORIAL IN ELSE  GGGGGGGGG !!!!!!!")
+        tutorialVal = true;
+      }
+      return {
+        tutorial: tutorialVal,
+        categories: state.categories
       };
 
     default:

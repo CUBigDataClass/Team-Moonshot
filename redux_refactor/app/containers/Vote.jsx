@@ -7,7 +7,7 @@ import Scoreboard from 'components/Scoreboard';
 import MenuButton from 'components/MenuButton';
 
 import {
-  createCategory, typing, destroyCategory, fetchCategories } from 'actions/categories';
+  createCategory, typing, destroyCategory, fetchCategories, tutorial } from 'actions/categories';
 import styles from 'css/components/vote';
 
 const cx = classNames.bind(styles);
