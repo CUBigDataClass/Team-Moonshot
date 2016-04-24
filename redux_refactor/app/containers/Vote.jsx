@@ -5,6 +5,8 @@ import EntryBox from 'components/EntryBox';
 import MainSection from 'components/MainSection';
 import Scoreboard from 'components/Scoreboard';
 import MenuButton from 'components/MenuButton';
+import Dropdown from 'components/Dropdown';
+import {submission} from 'actions/categories';
 
 import {
   createCategory, typing, destroyCategory, fetchCategories, tutorial } from 'actions/categories';
@@ -28,6 +30,12 @@ class Vote extends Component {
     this.onEntryChange = this.onEntryChange.bind(this);
     this.onEntrySave = this.onEntrySave.bind(this);
     this.onTutorialButton = this.onTutorialButton.bind(this);
+    this.onSubmitClick = this.onSubmitClick.bind(this);
+  }
+
+  onSubmitClick(id,index) {
+    const {dispatch} = this.props;
+    dispatch(submission(id, index))
   }
 
   onTutorialButton(id,index) {
@@ -64,6 +72,8 @@ class Vote extends Component {
         <MenuButton
           TutorialButton={this.onTutorialButton}
         />
+        <Dropdown
+          SubmitButton={this.onSubmitClick} />
         <MainSection
           categories={categories}
           onDestroy={this.onDestroy}
