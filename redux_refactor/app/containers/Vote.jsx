@@ -70,9 +70,6 @@ class Vote extends Component {
     const {newCategory, categories, something} = this.props;
     return (
       <div>
-        <MenuButton
-          TutorialButton={this.onTutorialButton}
-        />
         <Dropdown
           onClickSubmitButton={this.onSubmitClick}
           MenuSelection={this.onDropDown}
