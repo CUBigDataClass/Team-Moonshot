@@ -78,7 +78,7 @@ class Vote extends Component {
         <Dropdown
           SubmitButton={this.onSubmitClick}
           MenuSelection={this.onDropDown}
-          something={something}
+          something={this.props.something}
 
         />
         <EntryBox

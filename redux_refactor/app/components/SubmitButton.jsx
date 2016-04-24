@@ -13,8 +13,9 @@ export default class SubmitButton extends Component {
   }
 
   onButtonClick() {
-    const { id, index, SubmitButton } = this.props;
+    const { id, index, SubmitButton, something } = this.props;
     SubmitButton(id, index);
+    console.log(something);
   }
 
   render() {
