@@ -53,9 +53,10 @@ export default class Dropdown extends Component {
             <MenuItem value={"Milk"} primaryText="Milk"/>
             <MenuItem value={"Chocolate"} primaryText="Chocolate"/>
          </DropDownMenu>
-    
+
         <SubmitButton
           SubmitButton={this.props.SubmitButton} />
+          submission={submission}
       </div>
     );
   }

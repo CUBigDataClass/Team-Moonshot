@@ -16,7 +16,7 @@ export default class SubmitButton extends Component {
     const { id, index, SubmitButton } = this.props;
     SubmitButton(id, index);
     console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-    console.log({SubmitButton})
+    console.log(submission)
   }
 
   render() {

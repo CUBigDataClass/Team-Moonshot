@@ -67,14 +67,14 @@ export default function category(state = {
 
       case CLICK_SUBMIT:
         var submitVal;
-        if (state.submitButton) {
-          submitVal = !state.submitButton;
+        if (state.submission) {
+          submitVal = !state.submisson;
         }
         else {
           submitVal = true;
         }
         return {
-          submitButton: submitVal,
+          submission: submitVal,
           categories: state.categories
         };
 
