@@ -4,6 +4,8 @@ import classNames from 'classnames/bind';
 import EntryBox from 'components/EntryBox';
 import MainSection from 'components/MainSection';
 import Scoreboard from 'components/Scoreboard';
+import MenuButton from 'components/MenuButton';
+
 import {
   createCategory, typing, destroyCategory, fetchCategories } from 'actions/categories';
 import styles from 'css/components/vote';
@@ -25,6 +27,12 @@ class Vote extends Component {
     // event handlers for EntryBox component
     this.onEntryChange = this.onEntryChange.bind(this);
     this.onEntrySave = this.onEntrySave.bind(this);
+    this.onTutorialButton = this.onTutorialButton.bind(this);
+  }
+
+  onTutorialButton(id,index) {
+    const {dispatch} = this.props;
+    dispatch(tutorial(id, index))
   }
 
   onDestroy(id, index) {
@@ -52,6 +60,9 @@ class Vote extends Component {
           category={newCategory}
           onEntryChange={this.onEntryChange}
           onEntrySave={this.onEntrySave}
+        />
+        <MenuButton
+          TutorialButton={this.onTutorialButton}
         />
         <MainSection
           categories={categories}

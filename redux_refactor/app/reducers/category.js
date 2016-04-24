@@ -45,6 +45,7 @@ export default function category(state = {
         categories: [...state.categories.filter((tp, i) => i !== action.index)],
         newCategory: state.newCategory
       };
+
     default:
       return state;
   }
