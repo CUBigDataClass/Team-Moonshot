@@ -68,8 +68,8 @@ class Vote extends Component {
 
   render() {
     const {newCategory, categories, something} = this.props;
-    console.log("********************************************")
-    console.log(something)
+    console.log("********************************************");
+    console.log(something);
     return (
       <div>
         <MenuButton

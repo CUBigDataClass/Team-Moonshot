@@ -14,7 +14,7 @@ import {
 export default function category(state = {
   categories: [],
   newCategory: '',
-  tutorial: false
+  submission: false
 }, action) {
   switch (action.type) {
     case TYPING:
