@@ -6,6 +6,7 @@ import classNames from 'classnames/bind';
 import SubmitButton from 'components/SubmitButton';
 import getMuiTheme from 'material-ui/lib/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/lib/MuiThemeProvider';
+import CategoryItem from 'components/CategoryItem';
 
 const styles = {
   container: {
@@ -36,8 +37,8 @@ export default class Dropdown extends Component {
     });
   }
 
-
   render() {
+
     return (
         <div style={styles.container}>
           <DropDownMenu value={this.state.val} onChange={this.handleChange}>
@@ -56,7 +57,10 @@ export default class Dropdown extends Component {
 
         <SubmitButton
           onClickSubmitButton={this.props.onClickSubmitButton}
-          submitButtonState={this.props.submitButtonState} />
+          submitButtonState={this.props.submitButtonState}
+          categories={this.props.categories}
+          category={this.props.category} />
+
       </div>
     );
   }

@@ -13,19 +13,21 @@ export default class SubmitButton extends Component {
   }
 
   onButtonClick() {
-    const { id, index, onClickSubmitButton, submitButtonState } = this.props;
+    const { id, index, onClickSubmitButton, submitButtonState, category } = this.props;
     onClickSubmitButton(id, index);
     console.log(submitButtonState);
   }
 
   render() {
-
     return (
       <div>
         <FlatButton label="Submit" onClick={this.onButtonClick} />
         <DialogBox
         onButtonClick={this.onButtonClick}
-        dialogBoxButtonState={this.props.submitButtonState} />
+        dialogBoxButtonState={this.props.submitButtonState}
+        categories={this.props.categories}
+        categoryValue={this.props.category} />
+
       </div>
     );
   }
