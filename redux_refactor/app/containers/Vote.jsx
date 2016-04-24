@@ -34,8 +34,7 @@ class Vote extends Component {
   }
 
   onSubmitClick(id,index) {
-    const {dispatch,something} = this.props;
-    console.log(something);
+    const {dispatch} = this.props;
     dispatch(submission(id, index))
   }
 
@@ -79,6 +78,7 @@ class Vote extends Component {
         <Dropdown
           SubmitButton={this.onSubmitClick}
           MenuSelection={this.onDropDown}
+          something={something}
 
         />
         <EntryBox

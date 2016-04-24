@@ -14,7 +14,7 @@ import {
 export default function category(state = {
   categories: [],
   newCategory: '',
-  submission: false
+  submission: true
 }, action) {
   switch (action.type) {
     case TYPING:
@@ -66,6 +66,7 @@ export default function category(state = {
       };
 
       case CLICK_SUBMIT:
+      return {
           submission: !state.submission,
           categories: state.categories
         };
