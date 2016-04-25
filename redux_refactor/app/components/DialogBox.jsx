@@ -12,9 +12,7 @@ export default class DialogBox extends Component {
   }
 
   render() {
-    const categoryItems = this.props.categories.map((category, key) => {
-        console.log(category.name);
-    });
+
     return (
       <div>
         <Dialog

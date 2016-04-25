@@ -1,11 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames/bind';
-import styles from 'css/components/topic-item';
 import Divider from 'material-ui/lib/divider';
 import MenuItem from 'material-ui/lib/menus/menu-item';
 import RemoveRedEye from 'material-ui/lib/svg-icons/image/remove-red-eye';
-
-const cx = classNames.bind(styles);
 
 export default class CategoryItem extends Component {
   constructor(props) {
@@ -37,7 +34,7 @@ export default class CategoryItem extends Component {
   render() {
     return (
       <MenuItem key={this.props.id} onClick={this.onDestroyClick}>
-        <span className={cx('topic')}>{this.props.name}</span>
+        <span >{this.props.name}</span>
       </MenuItem>
     );
   }

@@ -37,8 +37,8 @@ function submit(index) {
   return { type: types.CLICK_SUBMIT, index };
 }
 
-function menu(index) {
-  return { type: types.MENU_DROP, index };
+function grid(index) {
+  return { type: types.CLICK_GRID, index };
 }
 
 export function typing(text) {
@@ -168,8 +168,8 @@ export function submission(id,index) {
   };
 }
 
-export function droplist(id,index) {
+export function gridclick(id,index) {
   return dispatch => {
-    dispatch(menu(index));
+    dispatch(grid(index));
   };
 }

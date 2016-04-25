@@ -14,57 +14,13 @@ const styles = {
     justifyContent: 'space-around',
   },
   gridList: {
-    width: 500,
-    height: 400,
-    overflowY: 'auto',
+    width: "80vw",
+    height: "80vh",
     marginBottom: 24,
   },
 };
 
-const tilesDataa = [
-  {
-    img: 'images/grid-list/00-52-29-429_640.jpg',
-    title: 'Breakfast',
-    author: 'jill111',
-  },
-  {
-    img: 'images/grid-list/burger-827309_640.jpg',
-    title: 'Tasty burger',
-    author: 'pashminu',
-  },
-  {
-    img: 'images/grid-list/camera-813814_640.jpg',
-    title: 'Camera',
-    author: 'Danson67',
-  },
-  {
-    img: 'images/grid-list/morning-819362_640.jpg',
-    title: 'Morning',
-    author: 'fancycrave1',
-  },
-  {
-    img: 'images/grid-list/hats-829509_640.jpg',
-    title: 'Hats',
-    author: 'Hans',
-  },
-  {
-    img: 'images/grid-list/honey-823614_640.jpg',
-    title: 'Honey',
-    author: 'fancycravel',
-  },
-  {
-    img: 'images/grid-list/vegetables-790022_640.jpg',
-    title: 'Vegetables',
-    author: 'jill111',
-  },
-  {
-    title: 'Water plant',
-    author: 'BkrmadtyaKarki',
-  },
-];
-
-
-export default class DialogBox extends Component {
+export default class CategoryGrid extends Component {
   constructor(props) {
     super(props);
   }
@@ -77,8 +33,9 @@ export default class DialogBox extends Component {
           cellHeight={200}
           style={styles.gridList}
         >
-          {tilesData.map(tile => (
+          {tilesData.map((tile,key) => (
             <GridTile
+              key={key}
               title={tile.name}
               onClick={() => console.log("***8**88*88********8**88****888*****8***")}
             >
@@ -87,6 +44,7 @@ export default class DialogBox extends Component {
           ))}
         </GridList>
         <FlatButton label="Go Back" onClick={this.props.onClickSubmitButton} />
+
       </div>
     );
   }

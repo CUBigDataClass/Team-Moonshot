@@ -2,9 +2,7 @@ import React, { PropTypes } from 'react';
 //import TopicTextInput from 'components/TopicTextInput';
 import CategoryTextInput from 'components/CategoryTextInput';
 import classNames from 'classnames/bind';
-import styles from 'css/components/entrybox';
 
-const cx = classNames.bind(styles);
 
 // Takes callback functions from props and passes it down to TopicTextInput
 // Essentially this is passing the callback function two levels down from parent
@@ -13,8 +11,8 @@ const cx = classNames.bind(styles);
 // 2. Move TopicTextInput up to EntryBox so it's less confusing
 const EntryBox = ({onEntryChange, onEntrySave, category}) => {
   return (
-    <div className={cx('entrybox')}>
-      <CategoryTextInput 
+    <div>
+      <CategoryTextInput
         underlineStyle={{
           borderWidth: '100%',
         }}
@@ -23,7 +21,7 @@ const EntryBox = ({onEntryChange, onEntrySave, category}) => {
         onEntryChange={onEntryChange}
         onEntrySave={onEntrySave} />
     </div>
- 
+
   );
 };
 

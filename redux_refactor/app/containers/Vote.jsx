@@ -9,7 +9,7 @@ import Dropdown from 'components/Dropdown';
 import CategoryGrid from 'components/CategoryGrid';
 
 import {
-  createCategory, typing, destroyCategory, fetchCategories, tutorial, submission, droplist } from 'actions/categories';
+  createCategory, typing, destroyCategory, fetchCategories, tutorial, submission, gridclick } from 'actions/categories';
 import styles from 'css/components/vote';
 
 const cx = classNames.bind(styles);
@@ -31,7 +31,8 @@ class Vote extends Component {
     this.onEntrySave = this.onEntrySave.bind(this);
     this.onTutorialButton = this.onTutorialButton.bind(this);
     this.onSubmitClick = this.onSubmitClick.bind(this);
-    this.onDropDown = this.onDropDown.bind(this);
+    this.onGridClick = this.onGridClick.bind(this);
+    this.offSubmitClick = this.offSubmitClick.bind(this);
   }
 
   onSubmitClick(id,index) {
@@ -39,9 +40,15 @@ class Vote extends Component {
     dispatch(submission(id, index))
   }
 
-  onDropDown(id,index) {
+  offSubmitClick(id,index) {
     const {dispatch} = this.props;
-    dispatch(droplist(id, index))
+    dispatch(submission(id, index))
+  }
+
+
+  onGridClick(id,index) {
+    const {dispatch} = this.props;
+    dispatch(gridclick(id, index))
   }
 
   onTutorialButton(id,index) {
@@ -72,34 +79,35 @@ class Vote extends Component {
     return (
         <div>
           {this.props.submitButtonState ?
-          <div>
-            <Dropdown
-              onClickSubmitButton={this.onSubmitClick}
-              MenuSelection={this.onDropDown}
-              submitButtonState={this.props.submitButtonState}
-              categories={categories}
-              category={newCategory}
-            />
-            <EntryBox
-              category={newCategory}
-              onEntryChange={this.onEntryChange}
-              onEntrySave={this.onEntrySave}
-            />
-            <MainSection
-              categories={categories}
-              onDestroy={this.onDestroy}
-            />
+            <div>
+              <CategoryGrid
+                onClickSubmitButton={this.onSubmitClick}
+                onGridClick={this.onGridClick}
+                submitButtonState={this.props.submitButtonState}
+                gridClickState={this.props.gridClickState}
+                categories={categories}
+                category={newCategory} />
+              </div>
+          : //else condition
+              <div>
+                <Dropdown
+                  onClickSubmitButton={this.onSubmitClick}
+                  submitButtonState={this.props.submitButtonState}
+                  categories={categories}
+                  category={newCategory}
+                />
+                <EntryBox
+                  category={newCategory}
+                  onEntryChange={this.onEntryChange}
+                  onEntrySave={this.onEntrySave}
+                />
+                <MainSection
+                  categories={categories}
+                  onDestroy={this.onDestroy}
+                />
+              </div>
+          }
         </div>
-        :
-        <div>
-          <CategoryGrid
-            onClickSubmitButton={this.onSubmitClick}
-            MenuSelection={this.onDropDown}
-            submitButtonState={this.props.submitButtonState}
-            categories={categories}
-            category={newCategory} />
-        </div>}
-      </div>
     );
   }
 }
@@ -114,7 +122,8 @@ function mapStateToProps(state) {
   return {
     categories: state.category.categories,
     newCategory: state.category.newCategory,
-    submitButtonState: state.category.submission
+    submitButtonState: state.category.submission,
+    gridClickState: state.category.gridclick
   };
 }
 

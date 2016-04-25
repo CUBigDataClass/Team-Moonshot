@@ -8,13 +8,14 @@ import {
   GET_CATEGORIES_FAILURE,
   CLICK_TUTORIAL,
   CLICK_SUBMIT,
-  MENU_DROP} from 'constants/index';
+  CLICK_GRID} from 'constants/index';
 
 
 export default function category(state = {
   categories: [],
   newCategory: '',
-  submission: true
+  submission: true,
+  gridclick: true
 }, action) {
   switch (action.type) {
     case TYPING:
@@ -71,14 +72,9 @@ export default function category(state = {
           categories: state.categories
         };
 
-        case MENU_DROP:
-          var MenuVal;
-          if (state.MenuSelection) {
-            console.log("ENTERED INTO STATE.MenuSelection IN ELSE  GGGGGGGGG !!!!!!!");
-            MenuVal = !state.MenuSelection;
-          }
-          return {
-            MenuSelection: 2,
+        case CLICK_GRID:
+        return {
+            gridclick: !state.gridclick,
             categories: state.categories
           };
 
