@@ -5,12 +5,17 @@ import {
   DESTROY_CATEGORY,
   GET_CATEGORIES_REQUEST,
   GET_CATEGORIES_SUCCESS,
-  GET_CATEGORIES_FAILURE } from 'constants/index';
+  GET_CATEGORIES_FAILURE,
+  CLICK_TUTORIAL,
+  CLICK_SUBMIT,
+  CLICK_GRID} from 'constants/index';
 
 
 export default function category(state = {
   categories: [],
-  newCategory: ''
+  newCategory: '',
+  submission: true,
+  gridclick: true
 }, action) {
   switch (action.type) {
     case TYPING:
@@ -45,6 +50,34 @@ export default function category(state = {
         categories: [...state.categories.filter((tp, i) => i !== action.index)],
         newCategory: state.newCategory
       };
+
+    case CLICK_TUTORIAL:
+      var tutorialVal;
+      if (state.tutorial) {
+        console.log("ENTERED INTO STATE.TUTORIAL IN IF OMGOMGOMGOMGOMG!!!!!!!!")
+        tutorialVal = !state.tutorial;
+      }
+      else {
+        console.log("ENTERED INTO STATE.TUTORIAL IN ELSE  GGGGGGGGG !!!!!!!")
+        tutorialVal = true;
+      }
+      return {
+        tutorial: tutorialVal,
+        categories: state.categories
+      };
+
+      case CLICK_SUBMIT:
+      return {
+          submission: !state.submission,
+          categories: state.categories
+        };
+
+        case CLICK_GRID:
+        return {
+            gridclick: !state.gridclick,
+            categories: state.categories
+          };
+
     default:
       return state;
   }

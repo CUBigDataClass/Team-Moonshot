@@ -29,6 +29,18 @@ function destroy(index) {
   return { type: types.DESTROY_CATEGORY, index };
 }
 
+function click(index) {
+  return { type: types.CLICK_TUTORIAL, index };
+}
+
+function submit(index) {
+  return { type: types.CLICK_SUBMIT, index };
+}
+
+function grid(index) {
+  return { type: types.CLICK_GRID, index };
+}
+
 export function typing(text) {
   return {
     type: types.TYPING,
@@ -141,5 +153,23 @@ export function destroyCategory(id, index) {
     // You can also dispatch here
     // E.g.
     // .then(response => {});
+  };
+}
+
+export function tutorial(id,index) {
+  return dispatch => {
+    dispatch(click(index));
+  };
+}
+
+export function submission(id,index) {
+  return dispatch => {
+    dispatch(submit(index));
+  };
+}
+
+export function gridclick(id,index) {
+  return dispatch => {
+    dispatch(grid(index));
   };
 }
