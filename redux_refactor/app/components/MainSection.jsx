@@ -19,6 +19,7 @@ const MainSection = ({onDestroy, categories}) => {
         items={category.items}
         onDestroy={onDestroy} />);
     });
+  console.log(categoryItems);
   return (
     <Paper className={cx('main-section')} zDepth={3}>
       <h2 className={cx('header')}>Categories</h2>

@@ -23,10 +23,11 @@ export default class SubmitButton extends Component {
       <div>
         <FlatButton label="Submit" onClick={this.onButtonClick} />
         <DialogBox
-        onButtonClick={this.onButtonClick}
-        dialogBoxButtonState={this.props.submitButtonState}
-        categories={this.props.categories}
-        categoryValue={this.props.category} />
+          onButtonClick={this.onButtonClick}
+          dialogBoxButtonState={this.props.submitButtonState}
+          categories={this.props.categories}
+          categoryValue={this.props.category}
+        />
 
       </div>
     );
