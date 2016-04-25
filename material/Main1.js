@@ -19,6 +19,8 @@ import TableHeader from 'material-ui/lib/table/table-header';
 import TableRowColumn from 'material-ui/lib/table/table-row-column';
 import TableBody from 'material-ui/lib/table/table-body';
 import AutoComplete from 'material-ui/lib/auto-complete';
+import DropDownMenu from 'material-ui/lib/DropDownMenu';
+import MenuItem from 'material-ui/lib/menus/menu-item';
 
 const styles = {
   container: {
@@ -32,9 +34,7 @@ const muiTheme = getMuiTheme({
     accent1Color: Colors.pinkA200,
   },
 });
-const productCategories=[
-    'shoes','coffee shops', 'pizza places', 'surf shops',
-]
+
 const tableData=[
 {
     rank: 1,
@@ -54,7 +54,13 @@ const tableData=[
 {
     rank: 4,
     name: 'New Balance',
-    score: 600,
+    score1: 600,
+    score2: 535,
+},
+{
+    rank: 5,
+    name: 'Newer Balance',
+    score: 323,
 }];
 
 class Main extends React.Component {
@@ -63,10 +69,19 @@ class Main extends React.Component {
     this.handleRequestClose = this.handleRequestClose.bind(this);
     this.handleTouchTap = this.handleTouchTap.bind(this);
     this.searchText = this.searchText.bind(this);
+    this.handleChange = this.handleChange.bind(this);
 
     this.state = {
       open: false,
+      val:'Footwear',
     };
+
+  }
+
+  handleChange(e, index, value) {
+    this.setState({
+      val: value,
+    });
   }
 
   handleRequestClose() {
@@ -126,18 +141,28 @@ class Main extends React.Component {
       <MuiThemeProvider muiTheme={muiTheme}>
         <div style={styles.container}>
           <h1>PROJECT-MOONSHOT</h1>
-          <AutoComplete
-            floatingLabelText="Enter a product category"
-            filter={AutoComplete.caseInsensitiveFilter}
-            dataSource={productCategories}
-          />
+
+          <DropDownMenu value={this.state.val} onChange={this.handleChange}>
+            <MenuItem value={"Alcohols"} primaryText="Alcohols"/>
+            <MenuItem value={"Footwear"} primaryText="Footwear"/>
+            <MenuItem value={"Accessories"} primaryText="Accessories"/>
+            <MenuItem value={"Electronics"} primaryText="Electronics"/>
+            <MenuItem value={"Bags"} primaryText="Bags"/>
+            <MenuItem value={"Female Bags"} primaryText="Female Bags"/>
+            <MenuItem value={"Skiing & Skating"} primaryText="Skiing & Skating"/>
+            <MenuItem value={"Cosmetics"} primaryText="Cosmetics"/>
+            <MenuItem value={"Drinks"} primaryText="Drinks"/>
+            <MenuItem value={"Milk"} primaryText="Milk"/>
+            <MenuItem value={"Chocolate"} primaryText="Chocolate"/>
+          </DropDownMenu>
+
           <Dialog
             open={this.state.open}
-            title= "Ranking Table"
+            title= {this.state.val}
             actions={standardActions}
             onRequestClose={this.handleRequestClose}
           >
-            You searched for Shoes
+            You searched for {this.state.val}
           </Dialog>
           <RaisedButton
             label="Search"

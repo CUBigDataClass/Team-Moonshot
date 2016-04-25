@@ -1,0 +1,26 @@
+@value roboto from './common/typography.css';
+
+/*
+ * Add any global styles here
+ */
+
+. {
+  display: flex;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+body {
+}
+
+
+.app {
+
+  display: flex;
+  font-family: roboto;
+  font-weight: normal;
+  font-smoothing: antialiased;
+}

@@ -1,0 +1,16 @@
+@value global-radius from '../settings.css';
+
+.main-section {
+  float: center;
+}
+
+  .header {
+    text-align: center;
+    composes: subheading from '../common/typography';
+  }
+
+  .list {
+    list-style: none;
+    padding: 16px;
+  }
+
