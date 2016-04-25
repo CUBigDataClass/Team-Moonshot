@@ -17,20 +17,19 @@ export default class DialogBox extends Component {
     });
     return (
       <div>
-
-      <Dialog
-        title="Dialog With Actions"
-        open={!this.props.dialogBoxButtonState}
-      >
-        <div>
-          <ComponentList
-            dialogBoxButtonState={this.props.dialogBoxButtonState}
-            onButtonClick={this.props.onButtonClick}
-            categories={this.props.categories}
+        <Dialog
+          title="Dialog With Actions"
+          open={!this.props.dialogBoxButtonState}
+        >
+          <div>
+            <ComponentList
+              dialogBoxButtonState={this.props.dialogBoxButtonState}
+              onButtonClick={this.props.onButtonClick}
+              categories={this.props.categories}
             />
-          <FlatButton label="close" onClick={this.props.onButtonClick} />
-        </div>
-      </Dialog>
+            <FlatButton label="close" onClick={this.props.onButtonClick} />
+          </div>
+        </Dialog>
       </div>
     );
   }

@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import * as Colors from 'material-ui/lib/styles/colors';
 import DropDownMenu from 'material-ui/lib/DropDownMenu';
 import MenuItem from 'material-ui/lib/menus/menu-item';
-import classNames from 'classnames/bind';
 import SubmitButton from 'components/SubmitButton';
 import getMuiTheme from 'material-ui/lib/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/lib/MuiThemeProvider';
@@ -25,9 +24,8 @@ export default class Dropdown extends Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
-
     this.state = {
-      val:"Footwear",
+      val:1,
     };
   }
 
@@ -38,11 +36,10 @@ export default class Dropdown extends Component {
   }
 
   render() {
-
     return (
         <div style={styles.container}>
           <DropDownMenu value={this.state.val} onChange={this.handleChange}>
-            <MenuItem value={"Alcohols"} primaryText="Alcohols"/>
+            <MenuItem value={1} primaryText="Alcohols"/>
             <MenuItem value={"Footwear"} primaryText="Footwear"/>
             <MenuItem value={"Accessories"} primaryText="Accessories"/>
             <MenuItem value={"Electronics"} primaryText="Electronics"/>

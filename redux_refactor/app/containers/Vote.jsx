@@ -6,6 +6,7 @@ import MainSection from 'components/MainSection';
 import Scoreboard from 'components/Scoreboard';
 import MenuButton from 'components/MenuButton';
 import Dropdown from 'components/Dropdown';
+import CategoryGrid from 'components/CategoryGrid';
 
 import {
   createCategory, typing, destroyCategory, fetchCategories, tutorial, submission, droplist } from 'actions/categories';
@@ -67,26 +68,37 @@ class Vote extends Component {
 
 
   render() {
-    const {newCategory, categories, something} = this.props;
+    const {newCategory, categories, submitButtonState} = this.props;
     return (
-      <div>
-        <Dropdown
-          onClickSubmitButton={this.onSubmitClick}
-          MenuSelection={this.onDropDown}
-          submitButtonState={this.props.submitButtonState}
-          categories={categories}
-          category={newCategory}
-
-        />
-        <EntryBox
-          category={newCategory}
-          onEntryChange={this.onEntryChange}
-          onEntrySave={this.onEntrySave}
-        />
-        <MainSection
-          categories={categories}
-          onDestroy={this.onDestroy}
-        />
+        <div>
+          {this.props.submitButtonState ?
+          <div>
+            <Dropdown
+              onClickSubmitButton={this.onSubmitClick}
+              MenuSelection={this.onDropDown}
+              submitButtonState={this.props.submitButtonState}
+              categories={categories}
+              category={newCategory}
+            />
+            <EntryBox
+              category={newCategory}
+              onEntryChange={this.onEntryChange}
+              onEntrySave={this.onEntrySave}
+            />
+            <MainSection
+              categories={categories}
+              onDestroy={this.onDestroy}
+            />
+        </div>
+        :
+        <div>
+          <CategoryGrid
+            onClickSubmitButton={this.onSubmitClick}
+            MenuSelection={this.onDropDown}
+            submitButtonState={this.props.submitButtonState}
+            categories={categories}
+            category={newCategory} />
+        </div>}
       </div>
     );
   }

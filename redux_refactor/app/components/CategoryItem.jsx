@@ -36,7 +36,7 @@ export default class CategoryItem extends Component {
 
   render() {
     return (
-      <MenuItem key={this.props.id} onClick={this.onDestroyClick} rightIcon={this.getIcon()}>
+      <MenuItem key={this.props.id} onClick={this.onDestroyClick}>
         <span className={cx('topic')}>{this.props.name}</span>
       </MenuItem>
     );

@@ -24,7 +24,7 @@ export default class ComponentList extends Component {
     console.log(categoryItems);
     return (
       <div>
-      {categoryItems}
+        {categoryItems}
       </div>
     );
   }

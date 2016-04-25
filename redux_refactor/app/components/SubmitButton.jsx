@@ -28,7 +28,6 @@ export default class SubmitButton extends Component {
           categories={this.props.categories}
           categoryValue={this.props.category}
         />
-
       </div>
     );
   }
