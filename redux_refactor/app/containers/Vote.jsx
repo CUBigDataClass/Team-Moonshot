@@ -8,6 +8,8 @@ import MenuButton from 'components/MenuButton';
 import Dropdown from 'components/Dropdown';
 import CategoryGrid from 'components/CategoryGrid';
 import FlatButton from 'material-ui/lib/flat-button';
+import DialogBox from 'components/DialogBox';
+
 
 import {
   createCategory, typing, destroyCategory, fetchCategories, tutorial, submission, gridclick, changeCategory } from 'actions/categories';
@@ -78,15 +80,24 @@ class Vote extends Component {
         <div>
           {!this.props.submitButtonState ?
             <div>
-              <CategoryGrid
-                onClickSubmitButton={this.onSubmitClick}
-                onGridClick={this.onGridClick}
-                submitButtonState={this.props.submitButtonState}
-                gridClickState={this.props.gridClickState}
-                categories={categories}
-                category={newCategory}
-                activeCategory={this.props.activeCategory}
-                categorySelect={this.onSelectCategory} />
+              {!this.props.gridClickState ?
+                <div>
+                  <CategoryGrid
+                    onClickSubmitButton={this.onSubmitClick}
+                    onGridClick={this.onGridClick}
+                    submitButtonState={this.props.submitButtonState}
+                    gridClickState={this.props.gridClickState}
+                    categories={categories}
+                    category={newCategory}
+                    activeCategory={this.props.activeCategory}
+                    categorySelect={this.onSelectCategory} />
+                </div>
+              :
+                <div>
+                  {"This is where the Graphs go!!"}
+                  <FlatButton label="Go Back" onClick={this.onGridClick}/>
+                </div>
+              }
             </div>
           : //else condition
               <div>

@@ -30,10 +30,16 @@ export default class CategoryGrid extends Component {
 
 
   onButtonClick(event) {
-    const { id, index, categorySelect, category, activeCategory} = this.props;
+    const { id, index, categorySelect, activeCategory, onGridClick} = this.props;
     console.log(event.target.dataset.name);
     categorySelect(event.target.dataset.name);
     console.log(activeCategory);
+    console.log("`************************************************``");
+    console.log(typeof activeCategory)
+    if (typeof activeCategory!== "undefined")
+    {
+      onGridClick();
+    }
   }
 
   render() {
