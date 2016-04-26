@@ -8,9 +8,11 @@ import MenuButton from 'components/MenuButton';
 import Dropdown from 'components/Dropdown';
 import CategoryGrid from 'components/CategoryGrid';
 import FlatButton from 'material-ui/lib/flat-button';
+import DialogBox from 'components/DialogBox';
+
 
 import {
-  createCategory, typing, destroyCategory, fetchCategories, tutorial, submission, gridclick } from 'actions/categories';
+  createCategory, typing, destroyCategory, fetchCategories, tutorial, submission, gridclick, changeCategory } from 'actions/categories';
 
 class Vote extends Component {
 
@@ -30,11 +32,18 @@ class Vote extends Component {
     this.onTutorialButton = this.onTutorialButton.bind(this);
     this.onSubmitClick = this.onSubmitClick.bind(this);
     this.onGridClick = this.onGridClick.bind(this);
+    this.onSelectCategory = this.onSelectCategory.bind(this);
   }
 
   onSubmitClick(id,index) {
     const {dispatch} = this.props;
     dispatch(submission(id, index))
+  }
+
+  onSelectCategory(name) {
+    console.log("logging function in vote!")
+    const {dispatch} = this.props;
+    dispatch(changeCategory(name))
   }
 
   onGridClick(id,index) {
@@ -66,18 +75,29 @@ class Vote extends Component {
 
 
   render() {
-    const {newCategory, categories, submitButtonState, gridClickState} = this.props;
+    const {newCategory, categories, submitButtonState, gridClickState, activeCategory} = this.props;
     return (
         <div>
           {!this.props.submitButtonState ?
             <div>
-              <CategoryGrid
-                onClickSubmitButton={this.onSubmitClick}
-                onGridClick={this.onGridClick}
-                submitButtonState={this.props.submitButtonState}
-                gridClickState={this.props.gridClickState}
-                categories={categories}
-                category={newCategory} />
+              {!this.props.gridClickState ?
+                <div>
+                  <CategoryGrid
+                    onClickSubmitButton={this.onSubmitClick}
+                    onGridClick={this.onGridClick}
+                    submitButtonState={this.props.submitButtonState}
+                    gridClickState={this.props.gridClickState}
+                    categories={categories}
+                    category={newCategory}
+                    activeCategory={this.props.activeCategory}
+                    categorySelect={this.onSelectCategory} />
+                </div>
+              :
+                <div>
+                  {"This is where the Graphs go!!"}
+                  <FlatButton label="Go Back" onClick={this.onGridClick}/>
+                </div>
+              }
             </div>
           : //else condition
               <div>
@@ -114,7 +134,8 @@ function mapStateToProps(state) {
     categories: state.category.categories,
     newCategory: state.category.newCategory,
     submitButtonState: state.category.submission,
-    gridClickState: state.category.gridclick
+    gridClickState: state.category.gridclick,
+    activeCategory: state.category.activeCategory
   };
 }
 

@@ -8,14 +8,16 @@ import {
   GET_CATEGORIES_FAILURE,
   CLICK_TUTORIAL,
   CLICK_SUBMIT,
-  CLICK_GRID} from 'constants/index';
+  CLICK_GRID,
+  SELECT_CATEGORY} from 'constants/index';
 
 
 export default function category(state = {
   categories: [],
   newCategory: '',
   submission: true,
-  gridclick: true
+  gridclick: true,
+  activeCategory: ''
 }, action) {
   switch (action.type) {
     case TYPING:
@@ -70,13 +72,19 @@ export default function category(state = {
       return {
           submission: !state.submission,
           categories: state.categories
-        };
+      };
 
-        case CLICK_GRID:
-        return {
-            gridclick: !state.gridclick,
-            categories: state.categories
-          };
+      case CLICK_GRID:
+      return {
+          gridclick: !state.gridclick,
+          categories: state.categories
+      };
+
+      case SELECT_CATEGORY:
+        console.log("CATEGORICAL!!!!1");
+        return Object.assign({}, state, {
+          activeCategory:[...state.categories.filter((tp) => tp.name === action.activeCategory)]
+        });
 
     default:
       return state;
