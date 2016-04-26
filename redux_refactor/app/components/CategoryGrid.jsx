@@ -21,6 +21,7 @@ const styles = {
   },
 };
 
+
 export default class CategoryGrid extends Component {
   constructor(props) {
     super(props);
@@ -29,9 +30,9 @@ export default class CategoryGrid extends Component {
 
 
   onButtonClick(event) {
-    const { id, index, onGridClick, category} = this.props;
-    onGridClick(id, index);
-    var activeCategory=event.target.dataset.name
+    const { id, index, categorySelect, category, activeCategory} = this.props;
+    console.log(event.target.dataset.name);
+    categorySelect(event.target.dataset.name);
     console.log(activeCategory);
   }
 
@@ -49,7 +50,6 @@ export default class CategoryGrid extends Component {
               id={key}
               title={tile.name}
               data-name={tile.name}
-              data-score={tile.score}
               onClick={this.onButtonClick}
             >
               {<RemoveRedEye />}
@@ -57,7 +57,6 @@ export default class CategoryGrid extends Component {
           ))}
         </GridList>
         <FlatButton label="Go Back" onClick={this.props.onClickSubmitButton} />
-
       </div>
     );
   }

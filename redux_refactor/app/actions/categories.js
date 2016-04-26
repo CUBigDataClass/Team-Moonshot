@@ -48,6 +48,14 @@ export function typing(text) {
   };
 }
 
+function selectCategory(data) {
+  console.log("REQUESTING CATEGORY SELECTION");
+  console.log(data);
+  return {
+    type: types.SELECT_CATEGORY,
+    activeCategory:data
+  };
+}
 /*
  * @param data
  * @return a simple JS object
@@ -101,9 +109,16 @@ export function createCategory(name) {
       name,
       items: [{
         id: 'hi',
-        name: 'thing',
+        name: 'thing1',
         score: '999',
         votes: '111',
+        date: Date.now
+      },
+      {
+        id: 'hi1',
+        name: 'thing2',
+        score: '666',
+        votes: '1111',
         date: Date.now
       }]
     };
@@ -172,4 +187,10 @@ export function gridclick(id,index) {
   return dispatch => {
     dispatch(grid(index));
   };
+}
+
+export function changeCategory(name) {
+  return dispatch => {
+    dispatch(selectCategory(name));
+  }
 }
