@@ -6,6 +6,7 @@ import StarBorder from 'material-ui/lib/svg-icons/toggle/star-border';
 import IconButton from 'material-ui/lib/icon-button';
 import FlatButton from 'material-ui/lib/flat-button';
 import RemoveRedEye from 'material-ui/lib/svg-icons/image/remove-red-eye';
+import DialogBox from 'components/DialogBox';
 
 const styles = {
   root: {
@@ -23,6 +24,15 @@ const styles = {
 export default class CategoryGrid extends Component {
   constructor(props) {
     super(props);
+    this.onButtonClick = this.onButtonClick.bind(this);
+  }
+
+
+  onButtonClick(event) {
+    const { id, index, onGridClick, category} = this.props;
+    onGridClick(id, index);
+    var activeCategory=event.target.dataset.name
+    console.log(activeCategory);
   }
 
   render() {
@@ -36,8 +46,11 @@ export default class CategoryGrid extends Component {
           {tilesData.map((tile,key) => (
             <GridTile
               key={key}
+              id={key}
               title={tile.name}
-              onClick={() => console.log("***8**88*88********8**88****888*****8***")}
+              data-name={tile.name}
+              data-score={tile.score}
+              onClick={this.onButtonClick}
             >
               {<RemoveRedEye />}
             </GridTile>

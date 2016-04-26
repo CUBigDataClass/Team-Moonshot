@@ -7,12 +7,10 @@ import Scoreboard from 'components/Scoreboard';
 import MenuButton from 'components/MenuButton';
 import Dropdown from 'components/Dropdown';
 import CategoryGrid from 'components/CategoryGrid';
+import FlatButton from 'material-ui/lib/flat-button';
 
 import {
   createCategory, typing, destroyCategory, fetchCategories, tutorial, submission, gridclick } from 'actions/categories';
-import styles from 'css/components/vote';
-
-const cx = classNames.bind(styles);
 
 class Vote extends Component {
 
@@ -32,19 +30,12 @@ class Vote extends Component {
     this.onTutorialButton = this.onTutorialButton.bind(this);
     this.onSubmitClick = this.onSubmitClick.bind(this);
     this.onGridClick = this.onGridClick.bind(this);
-    this.offSubmitClick = this.offSubmitClick.bind(this);
   }
 
   onSubmitClick(id,index) {
     const {dispatch} = this.props;
     dispatch(submission(id, index))
   }
-
-  offSubmitClick(id,index) {
-    const {dispatch} = this.props;
-    dispatch(submission(id, index))
-  }
-
 
   onGridClick(id,index) {
     const {dispatch} = this.props;
@@ -75,10 +66,10 @@ class Vote extends Component {
 
 
   render() {
-    const {newCategory, categories, submitButtonState} = this.props;
+    const {newCategory, categories, submitButtonState, gridClickState} = this.props;
     return (
         <div>
-          {this.props.submitButtonState ?
+          {!this.props.submitButtonState ?
             <div>
               <CategoryGrid
                 onClickSubmitButton={this.onSubmitClick}
@@ -87,7 +78,7 @@ class Vote extends Component {
                 gridClickState={this.props.gridClickState}
                 categories={categories}
                 category={newCategory} />
-              </div>
+            </div>
           : //else condition
               <div>
                 <Dropdown

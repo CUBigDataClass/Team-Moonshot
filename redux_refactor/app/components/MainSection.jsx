@@ -12,6 +12,7 @@ const MainSection = ({onDestroy, categories}) => {
       <CategoryItem index={key}
         id={category.id}
         key={key}
+        score={category.score}
         name={category.name}
         items={category.items}
         onDestroy={onDestroy} />);
