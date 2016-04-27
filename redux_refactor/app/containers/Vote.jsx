@@ -13,7 +13,6 @@ import * as Colors from 'material-ui/lib/styles/colors';
 
 const styles = {
   backDrop: {
-    background: Colors.teal500,
   }
 }
 
