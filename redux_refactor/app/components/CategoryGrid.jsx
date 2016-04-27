@@ -73,12 +73,12 @@ export default class CategoryGrid extends Component {
         Accessories
       );
     }
-    else if (imageName == "Beer") {
+    else if (imageName == "Alcohol") {
       return(
         Beer
       );
     }
-    else if (imageName == "Laptop") {
+    else if (imageName == "Electronics") {
       return(
         Laptop
       );
@@ -88,7 +88,7 @@ export default class CategoryGrid extends Component {
         Bags
       );
     }
-    else if (imageName == "Sunglasses") {
+    else if (imageName == "Cosmetics") {
       return(
         Sunglasses
       );
@@ -123,7 +123,6 @@ export default class CategoryGrid extends Component {
             </GridTile>
           ))}
         </GridList>
-        <FlatButton label="Go Back" onClick={this.props.onClickSubmitButton} />
       </div>
     );
   }
