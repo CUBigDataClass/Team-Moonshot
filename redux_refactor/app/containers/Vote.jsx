@@ -83,7 +83,7 @@ class Vote extends Component {
     const {newCategory, categories, submitButtonState, gridClickState, activeCategory} = this.props;
     return (
         <div style={styles.backDrop}>
-          {!this.props.submitButtonState ?
+          {this.props.submitButtonState ?
             <div>
               {this.props.gridClickState ?
                 <div>
@@ -101,6 +101,12 @@ class Vote extends Component {
                 </div>
               : //else condition
                 <div>
+                  <TableComponent
+                  activeCategory={this.props.activeCategory}
+                  onGridClick={this.onGridClick}
+                  gridClickState={this.props.gridClickState}
+                  />
+
                   {"This is where the Graphs go"}
                   {console.log(this.props.activeCategory)}
                   <FlatButton label="Go Back" onClick={this.onGridClick}/>
