@@ -61,8 +61,6 @@ function selectCategory(data) {
  * @return a simple JS object
  */
 function createCategoryRequest(data) {
-  console.log("REQUESTING CATEGORY CREATION");
-  console.log(data);
   return {
     type: types.CREATE_CATEGORY_REQUEST,
     id: data.id,

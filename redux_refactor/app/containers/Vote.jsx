@@ -9,12 +9,8 @@ import Dropdown from 'components/Dropdown';
 import CategoryGrid from 'components/CategoryGrid';
 import FlatButton from 'material-ui/lib/flat-button';
 import DialogBox from 'components/DialogBox';
-var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 import {
   createCategory, typing, destroyCategory, fetchCategories, tutorial, submission, gridclick, changeCategory } from 'actions/categories';
-
-import styles from 'css/common/example';
-const cx = classNames.bind(styles);
 
 class Vote extends Component {
 
@@ -82,8 +78,7 @@ class Vote extends Component {
         <div>
           {!this.props.submitButtonState ?
             <div>
-              {!this.props.gridClickState ?
-          
+              {this.props.gridClickState ?
                 <div>
                   <CategoryGrid
                     onClickSubmitButton={this.onSubmitClick}
@@ -95,16 +90,17 @@ class Vote extends Component {
                     activeCategory={this.props.activeCategory}
                     categorySelect={this.onSelectCategory} />
                 </div>
-
-              :
+              : //else condition
                 <div>
+                  {"This is where the Graphs go"}
                   <FlatButton label="Go Back" onClick={this.onGridClick}/>
-                  {"This is where the Graphs go!!"}
                 </div>
               }
             </div>
           : //else condition
               <div>
+              { console.log("Now Inside ELSE on HomePage for debugging") }
+              { console.log(typeof this.props.activeCategory) }
                 <Dropdown
                   onClickSubmitButton={this.onSubmitClick}
                   submitButtonState={this.props.submitButtonState}

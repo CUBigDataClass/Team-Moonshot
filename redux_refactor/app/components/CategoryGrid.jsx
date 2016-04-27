@@ -5,8 +5,14 @@ import GridTile from 'material-ui/lib/grid-list/grid-tile';
 import StarBorder from 'material-ui/lib/svg-icons/toggle/star-border';
 import IconButton from 'material-ui/lib/icon-button';
 import FlatButton from 'material-ui/lib/flat-button';
-import RemoveRedEye from 'material-ui/lib/svg-icons/image/remove-red-eye';
 import DialogBox from 'components/DialogBox';
+import Footwear from 'images/Footwear.svg';
+import Accessories from 'images/Accessories.svg';
+import Bags from 'images/Bags.svg';
+import Beer from 'images/Beer.svg';
+import Laptop from 'images/Laptop.svg';
+import Sunglasses from 'images/Sunglasses.svg';
+
 
 const styles = {
   root: {
@@ -16,11 +22,16 @@ const styles = {
   },
   gridList: {
     width: "80vw",
-    height: "80vh",
-    marginBottom: 24,
+    height: "80vw",
   },
-};
+  gridTile: {
+    width:"20vw",
+    height:"20vw",
+    background:"black",
+    borderRadius:"25px",
 
+  }
+};
 
 export default class CategoryGrid extends Component {
   constructor(props) {
@@ -28,17 +39,49 @@ export default class CategoryGrid extends Component {
     this.onButtonClick = this.onButtonClick.bind(this);
   }
 
-
   onButtonClick(event) {
-    const { id, index, categorySelect, activeCategory, onGridClick} = this.props;
+    const { id, index, categorySelect, activeCategory, onGridClick, gridClickState} = this.props;
     console.log(event.target.dataset.name);
     categorySelect(event.target.dataset.name);
+    console.log("ADADADADADADADADADAADAADADADADADADADADADADADAD");
     console.log(activeCategory);
-    console.log("`************************************************``");
-    console.log(typeof activeCategory)
-    if (typeof activeCategory!== "undefined")
-    {
-      onGridClick();
+    console.log(this.props.gridClickState)
+    onGridClick();
+  }
+
+  getIcon(imageName) {
+    if (imageName === "Footwear") {
+      return(
+        Footwear
+      );
+    }
+    else if (imageName == "Accessories") {
+      return(
+        Accessories
+      );
+    }
+    else if (imageName == "Beer") {
+      return(
+        Beer
+      );
+    }
+    else if (imageName == "Laptop") {
+      return(
+        Laptop
+      );
+    }
+    else if (imageName == "Bags") {
+      return(
+        Bags
+      );
+    }
+    else if (imageName == "Sunglasses") {
+      return(
+        Sunglasses
+      );
+    }
+    else {
+      return null;
     }
   }
 
@@ -47,18 +90,22 @@ export default class CategoryGrid extends Component {
     return(
       <div style={styles.root}>
         <GridList
-          cellHeight={200}
+          padding={1}
           style={styles.gridList}
+          rows={3}
+          cols={3}
         >
           {tilesData.map((tile,key) => (
             <GridTile
               key={key}
               id={key}
-              title={tile.name}
               data-name={tile.name}
-              onClick={this.onButtonClick}
+              style={styles.gridTile}
             >
-              {<RemoveRedEye />}
+            <img src={this.getIcon(tile.name)}
+              onClick={this.onButtonClick}
+              data-name={tile.name}
+            />
             </GridTile>
           ))}
         </GridList>

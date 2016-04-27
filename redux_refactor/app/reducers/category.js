@@ -56,32 +56,26 @@ export default function category(state = {
     case CLICK_TUTORIAL:
       var tutorialVal;
       if (state.tutorial) {
-        console.log("ENTERED INTO STATE.TUTORIAL IN IF OMGOMGOMGOMGOMG!!!!!!!!")
         tutorialVal = !state.tutorial;
       }
       else {
-        console.log("ENTERED INTO STATE.TUTORIAL IN ELSE  GGGGGGGGG !!!!!!!")
         tutorialVal = true;
       }
-      return {
+      return Object.assign({}, state, {
         tutorial: tutorialVal,
-        categories: state.categories
-      };
+      });
 
       case CLICK_SUBMIT:
-      return {
+      return Object.assign({}, state, {
           submission: !state.submission,
-          categories: state.categories
-      };
+      });
 
       case CLICK_GRID:
-      return {
+      return Object.assign({}, state, {
           gridclick: !state.gridclick,
-          categories: state.categories
-      };
+      });
 
       case SELECT_CATEGORY:
-        console.log("CATEGORICAL!!!!1");
         return Object.assign({}, state, {
           activeCategory:[...state.categories.filter((tp) => tp.name === action.activeCategory)]
         });
