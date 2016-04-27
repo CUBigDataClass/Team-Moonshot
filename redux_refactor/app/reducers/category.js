@@ -17,7 +17,8 @@ export default function category(state = {
   newCategory: '',
   submission: true,
   gridclick: true,
-  activeCategory: ''
+  activeCategory: '',
+  tutorial:true
 }, action) {
   switch (action.type) {
     case TYPING:
@@ -54,29 +55,22 @@ export default function category(state = {
       };
 
     case CLICK_TUTORIAL:
-      var tutorialVal;
-      if (state.tutorial) {
-        tutorialVal = !state.tutorial;
-      }
-      else {
-        tutorialVal = true;
-      }
       return Object.assign({}, state, {
-        tutorial: tutorialVal,
+        tutorial: !state.tutorial,
       });
 
-      case CLICK_SUBMIT:
+    case CLICK_SUBMIT:
       return Object.assign({}, state, {
           submission: !state.submission,
       });
 
-      case CLICK_GRID:
+    case CLICK_GRID:
       return Object.assign({}, state, {
           gridclick: !state.gridclick,
       });
 
-      case SELECT_CATEGORY:
-        return Object.assign({}, state, {
+    case SELECT_CATEGORY:
+      return Object.assign({}, state, {
           activeCategory:[...state.categories.filter((tp) => tp.name === action.activeCategory)]
         });
 

@@ -9,11 +9,19 @@ import Dropdown from 'components/Dropdown';
 import CategoryGrid from 'components/CategoryGrid';
 import FlatButton from 'material-ui/lib/flat-button';
 import DialogBox from 'components/DialogBox';
+import * as Colors from 'material-ui/lib/styles/colors';
+
+const styles = {
+  backDrop: {
+    background: Colors.teal500,
+  }
+}
+
+
 import {
   createCategory, typing, destroyCategory, fetchCategories, tutorial, submission, gridclick, changeCategory } from 'actions/categories';
 
 class Vote extends Component {
-
   //Data that needs to be called before rendering the component
   //This is used for server side rending via the fetchComponentDataBeforeRender() method
   static need = [  // eslint-disable-line
@@ -75,7 +83,7 @@ class Vote extends Component {
   render() {
     const {newCategory, categories, submitButtonState, gridClickState, activeCategory} = this.props;
     return (
-        <div>
+        <div style={styles.backDrop}>
           {!this.props.submitButtonState ?
             <div>
               {this.props.gridClickState ?
@@ -88,19 +96,20 @@ class Vote extends Component {
                     categories={categories}
                     category={newCategory}
                     activeCategory={this.props.activeCategory}
-                    categorySelect={this.onSelectCategory} />
+                    categorySelect={this.onSelectCategory}
+                    tutorialButtonState={this.props.tutorialButtonState}
+                    onTutorialButton={this.onTutorialButton} />
                 </div>
               : //else condition
                 <div>
                   {"This is where the Graphs go"}
+                  {console.log(this.props.activeCategory)}
                   <FlatButton label="Go Back" onClick={this.onGridClick}/>
                 </div>
               }
             </div>
           : //else condition
               <div>
-              { console.log("Now Inside ELSE on HomePage for debugging") }
-              { console.log(typeof this.props.activeCategory) }
                 <Dropdown
                   onClickSubmitButton={this.onSubmitClick}
                   submitButtonState={this.props.submitButtonState}
@@ -135,7 +144,8 @@ function mapStateToProps(state) {
     newCategory: state.category.newCategory,
     submitButtonState: state.category.submission,
     gridClickState: state.category.gridclick,
-    activeCategory: state.category.activeCategory
+    activeCategory: state.category.activeCategory,
+    tutorialButtonState: state.category.tutorial
   };
 }
 
