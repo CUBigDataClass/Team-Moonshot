@@ -10,6 +10,7 @@ import CategoryGrid from 'components/CategoryGrid';
 import FlatButton from 'material-ui/lib/flat-button';
 import DialogBox from 'components/DialogBox';
 import * as Colors from 'material-ui/lib/styles/colors';
+import TableComponent from 'components/TableComponent';
 
 const styles = {
   backDrop: {
@@ -106,7 +107,6 @@ class Vote extends Component {
                   onGridClick={this.onGridClick}
                   gridClickState={this.props.gridClickState}
                   />
-
                   {"This is where the Graphs go"}
                   {console.log(this.props.activeCategory)}
                   <FlatButton label="Go Back" onClick={this.onGridClick}/>
