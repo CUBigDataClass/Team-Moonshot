@@ -1,5 +1,4 @@
 import express from 'express';
-import passport from 'passport';
 import session from 'express-session';
 import bodyParser from 'body-parser';
 import path from 'path';
