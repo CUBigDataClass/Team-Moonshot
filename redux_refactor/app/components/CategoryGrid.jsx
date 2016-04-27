@@ -21,8 +21,9 @@ const styles = {
     justifyContent: 'space-around',
   },
   gridList: {
+    paddingTop: "10vh",
     width: "80vw",
-    height: "80vw",
+    height: "60vw",
   },
   gridTile: {
     width:"20vw",
@@ -104,7 +105,7 @@ export default class CategoryGrid extends Component {
         <GridList
           padding={1}
           style={styles.gridList}
-          rows={3}
+          rows={2}
           cols={3}
         >
           {tilesData.map((tile,key) => (
