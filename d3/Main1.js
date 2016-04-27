@@ -1,0 +1,207 @@
+
+/**
+ * In this file, we create a React component
+ * which incorporates components providedby material-ui.
+ */
+
+import React from 'react';
+import RaisedButton from 'material-ui/lib/raised-button';
+import Dialog from 'material-ui/lib/dialog';
+import * as Colors from 'material-ui/lib/styles/colors';
+import FlatButton from 'material-ui/lib/flat-button';
+import getMuiTheme from 'material-ui/lib/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/lib/MuiThemeProvider';
+import TextField from 'material-ui/lib/text-field';
+import Table from 'material-ui/lib/table/table';
+import TableHeaderColumn from 'material-ui/lib/table/table-header-column';
+import TableRow from 'material-ui/lib/table/table-row';
+import TableHeader from 'material-ui/lib/table/table-header';
+import TableRowColumn from 'material-ui/lib/table/table-row-column';
+import TableBody from 'material-ui/lib/table/table-body';
+import AutoComplete from 'material-ui/lib/auto-complete';
+import DropDownMenu from 'material-ui/lib/DropDownMenu';
+import MenuItem from 'material-ui/lib/menus/menu-item';
+import ReactD3 from 'react-d3';
+
+
+const BarChart = ReactD3.BarChart;
+
+const data = [
+    {
+    label: 'somethingA',
+    values: [{x: 'SomethingA', y: 10}, {x: 'SomethingB', y: 4}, {x: 'SomethingC', y: 3}],
+    },
+    {
+    label: 'somethingB',
+    values: [{x: 'SomethingA', y: 6}, {x: 'SomethingB', y: 8}, {x: 'SomethingC', y: 5}],
+    },
+    {
+    label: 'somethingC',
+    values: [{x: 'SomethingA', y: 6}, {x: 'SomethingB', y: 8}, {x: 'SomethingC', y: 5}],
+},
+];
+
+
+const styles = {
+  container: {
+    textAlign: 'center',
+    paddingTop: 200,
+  },
+};
+
+const muiTheme = getMuiTheme({
+  palette: {
+    accent1Color: Colors.pinkA200,
+  },
+});
+
+const tableData=[
+{
+    rank: 1,
+    name: 'Nike',
+    score: 10334,
+},
+{
+    rank: 2,
+    name: 'Addidas',
+    score: 4453,
+},
+{
+    rank: 3,
+    name: 'Reebok',
+    score: 1110,
+},
+{
+    rank: 4,
+    name: 'New Balance',
+    score1: 600,
+    score2: 535,
+},
+{
+    rank: 5,
+    name: 'Newer Balance',
+    score: 323,
+}];
+
+class Main extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+    this.handleRequestClose = this.handleRequestClose.bind(this);
+    this.handleTouchTap = this.handleTouchTap.bind(this);
+    this.searchText = this.searchText.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+
+    this.state = {
+      open: false,
+      val:'Footwear',
+    };
+
+  }
+
+  handleChange(e, index, value) {
+    this.setState({
+      val: value,
+    });
+  }
+
+  handleRequestClose() {
+    this.setState({
+      open: false,
+    });
+  }
+
+  handleTouchTap() {
+    this.setState({
+      open: true,
+    });
+  }
+
+  searchText(){
+      if(this.refs.searchBar.getValue() === undefined){
+          return("something");
+      }
+      else {
+          const text = this.refs.searchBar.getValue();
+          return(text);
+      }
+  }
+
+  render() {
+    const standardActions = (
+    <div>
+        <Table>
+        <TableHeader>
+          <TableRow>
+            <TableHeaderColumn>Rank</TableHeaderColumn>
+            <TableHeaderColumn>Name</TableHeaderColumn>
+            <TableHeaderColumn>Score</TableHeaderColumn>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {tableData.map( (row, index) => (
+            <TableRow key={index} selected={row.selected}>
+              <TableRowColumn>{index}</TableRowColumn>
+              <TableRowColumn>{row.rank}</TableRowColumn>
+              <TableRowColumn>{row.name}</TableRowColumn>
+              <TableRowColumn>{row.score}</TableRowColumn>
+            </TableRow>
+            ))}
+        </TableBody>
+      </Table>
+
+      <FlatButton
+        label="Okey"
+        secondary={true}
+        onTouchTap={this.handleRequestClose}
+      />
+     </div>
+    );
+
+
+    return (
+      <MuiThemeProvider muiTheme={muiTheme}>
+        <div style={styles.container}>
+          <h1>PROJECT-MOONSHOT</h1>
+
+          <BarChart
+          data={data}
+          width={400}
+          height={400}
+          margin={{top: 10, bottom: 50, left: 50, right: 10}}/>,
+
+
+
+          <DropDownMenu value={this.state.val} onChange={this.handleChange}>
+            <MenuItem value={"Alcohols"} primaryText="Alcohols"/>
+            <MenuItem value={"Footwear"} primaryText="Footwear"/>
+            <MenuItem value={"Accessories"} primaryText="Accessories"/>
+            <MenuItem value={"Electronics"} primaryText="Electronics"/>
+            <MenuItem value={"Bags"} primaryText="Bags"/>
+            <MenuItem value={"Female Bags"} primaryText="Female Bags"/>
+            <MenuItem value={"Skiing & Skating"} primaryText="Skiing & Skating"/>
+            <MenuItem value={"Cosmetics"} primaryText="Cosmetics"/>
+            <MenuItem value={"Drinks"} primaryText="Drinks"/>
+            <MenuItem value={"Milk"} primaryText="Milk"/>
+            <MenuItem value={"Chocolate"} primaryText="Chocolate"/>
+          </DropDownMenu>
+
+          <Dialog
+            open={this.state.open}
+            title= {this.state.val}
+            actions={standardActions}
+            onRequestClose={this.handleRequestClose}
+          >
+            You searched for {this.state.val}
+          </Dialog>
+          <RaisedButton
+            label="Search"
+            primary={true}
+            onTouchTap={this.handleTouchTap}
+          />
+        </div>
+      </MuiThemeProvider>
+    );
+  }
+}
+
+export default Main;

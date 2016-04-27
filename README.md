@@ -1,7 +1,15 @@
 # Team-Moonshot
 
-The front end has 2 parts:
+This is a project for the course Big Data
 
-frontend_basic: The basic functionality laid out using simple react with minimal css styling.
+Team members:
 
-frontend_material: Incorporating the same functionality into a much better looking page which is styled using material-ui.
+Rishabh Raghavendran @rrish 
+
+Simon Hewett @kybaeus
+
+Aayush Grover @aayush619
+
+Miranda Butler @mirandabutler
+
+Brian Salmon @bsalmon
