@@ -12,7 +12,7 @@ import Bags from 'images/Bags.svg';
 import Beer from 'images/Beer.svg';
 import Laptop from 'images/Laptop.svg';
 import Sunglasses from 'images/Sunglasses.svg';
-
+import * as Colors from 'material-ui/lib/styles/colors';
 
 const styles = {
   root: {
@@ -27,9 +27,16 @@ const styles = {
   gridTile: {
     width:"20vw",
     height:"20vw",
-    background:"black",
+    background:Colors.blueGrey800,
     borderRadius:"25px",
-
+    opacity: "0.3",
+  },
+  gridTile2: {
+    width:"20vw",
+    height:"20vw",
+    background:Colors.blueGrey800,
+    borderRadius:"25px",
+    opacity: "1.0",
   }
 };
 
@@ -37,15 +44,20 @@ export default class CategoryGrid extends Component {
   constructor(props) {
     super(props);
     this.onButtonClick = this.onButtonClick.bind(this);
+    this.onMoveOver = this.onMoveOver.bind(this);
   }
+
+  onMoveOver() {
+    const { id, index, onTutorialButton, tutorialButtonState} = this.props;
+    console.log(tutorialButtonState);
+    onTutorialButton();
+  }
+
 
   onButtonClick(event) {
     const { id, index, categorySelect, activeCategory, onGridClick, gridClickState} = this.props;
     console.log(event.target.dataset.name);
     categorySelect(event.target.dataset.name);
-    console.log("ADADADADADADADADADAADAADADADADADADADADADADADAD");
-    console.log(activeCategory);
-    console.log(this.props.gridClickState)
     onGridClick();
   }
 
@@ -100,12 +112,13 @@ export default class CategoryGrid extends Component {
               key={key}
               id={key}
               data-name={tile.name}
-              style={styles.gridTile}
+              onMouseOver={this.onMoveOver}
+              style={styles.gridTile2}
             >
-            <img src={this.getIcon(tile.name)}
-              onClick={this.onButtonClick}
-              data-name={tile.name}
-            />
+              <img src={this.getIcon(tile.name)}
+                onClick={this.onButtonClick}
+                data-name={tile.name}
+              />
             </GridTile>
           ))}
         </GridList>
