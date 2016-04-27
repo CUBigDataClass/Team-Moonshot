@@ -9,7 +9,7 @@ import TableHeader from 'material-ui/lib/table/table-header';
 import TableRowColumn from 'material-ui/lib/table/table-row-column';
 import TableBody from 'material-ui/lib/table/table-body';
 
-export default class CategoryGrid extends Component {
+export default class TableComponent extends Component {
   constructor(props) {
     super(props);
   }
@@ -38,9 +38,8 @@ render() {
         </TableBody>
       </Table>
       <FlatButton
-        label="Okey"
-        secondary={true}
-        onTouchTap={this.handleRequestClose}
+        label="Go Back"
+        onClick={this.props.onGridClick}
       />
      </div>
    );
