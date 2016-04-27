@@ -1,15 +1,22 @@
-# Team-Moonshot
 
-This is a project for the course Big Data
 
-Team members:
+#Team Name: Project Moonshot
+- Class: Big Data
+- Teacher: Greg Greenstreet
 
-Rishabh Raghavendran @rrish 
+##Goal
+To create a product recommendation system based on Tweets. 
 
-Simon Hewett @kybaeus
 
-Aayush Grover @aayush619
+##Team Members
+- Rishabh Raghavendran @rrish 
+- Simon Hewett @kybaeus
+- Aayush Grover @aayush619
+- Miranda Butler @mirandabutler
+- Brian Salmon @bsalmon
 
-Miranda Butler @mirandabutler
+##Dependencies
+- mongodb
+- Node.js
+- React.js
 
-Brian Salmon @bsalmon
