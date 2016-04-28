@@ -45,13 +45,6 @@ export default class CategoryGrid extends Component {
   constructor(props) {
     super(props);
     this.onButtonClick = this.onButtonClick.bind(this);
-    this.onMoveOver = this.onMoveOver.bind(this);
-  }
-
-  onMoveOver() {
-    const { id, index, onTutorialButton, tutorialButtonState} = this.props;
-    console.log(tutorialButtonState);
-    onTutorialButton();
   }
 
 
@@ -113,7 +106,6 @@ export default class CategoryGrid extends Component {
               key={key}
               id={key}
               data-name={tile.name}
-              onMouseOver={this.onMoveOver}
               style={styles.gridTile2}
             >
               <img src={this.getIcon(tile.name)}

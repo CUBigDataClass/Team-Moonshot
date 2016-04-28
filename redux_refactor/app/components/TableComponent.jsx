@@ -9,11 +9,14 @@ import TableHeader from 'material-ui/lib/table/table-header';
 import TableRowColumn from 'material-ui/lib/table/table-row-column';
 import TableBody from 'material-ui/lib/table/table-body';
 
-export default class CategoryGrid extends Component {
+export default class TableComponent extends Component {
   constructor(props) {
-}
+    super(props);
+  }
 
 render() {
+  console.log(this.props.activeCategory[0].items);
+  const tableData = this.props.activeCategory[0].items;
   return (
     <div>
         <Table>
@@ -28,18 +31,17 @@ render() {
           {tableData.map( (row, index) => (
             <TableRow key={index} selected={row.selected}>
               <TableRowColumn>{index}</TableRowColumn>
-              <TableRowColumn>{row.rank}</TableRowColumn>
               <TableRowColumn>{row.name}</TableRowColumn>
-              <TableRowColumn>{row.score}</TableRowColumn>
+              <TableRowColumn>{row.votes}</TableRowColumn>
             </TableRow>
             ))}
         </TableBody>
       </Table>
       <FlatButton
-        label="Okey"
-        secondary={true}
-        onTouchTap={this.handleRequestClose}
+        label="Go Back"
+        onClick={this.props.onGridClick}
       />
      </div>
-  )
+   );
+  }
 }
