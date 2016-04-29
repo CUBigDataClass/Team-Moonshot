@@ -1,0 +1,40 @@
+Alchohol, 240
+Alchohol, 198
+Alchohol, 38
+Alchohol, 18
+Alchohol, 232
+Bags, 0
+Bags, 0
+Bags, 0
+Bags, 2
+Bags, 1
+Drinks, 130
+Drinks, 4816
+Drinks, 515
+Drinks, 1
+Drinks, 2
+Cosmetics, 1
+Cosmetics, 16
+Cosmetics, 0
+Cosmetics, 79
+Cosmetics, 41
+Skating and Skiing, 0
+Skating and Skiing, 30
+Skating and Skiing, 0
+Skating and Skiing, 3
+Skating and Skiing, 0
+Footwear, 23
+Footwear, 0
+Footwear, 21
+Footwear, 90
+Footwear, 116
+Accessories, 0
+Accessories, 1
+Accessories, 0
+Accessories, 0
+Accessories, 0
+Sweets, 128
+Sweets, 84
+Sweets, 50
+Sweets, 204
+Sweets, 272
